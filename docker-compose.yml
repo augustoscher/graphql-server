@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  db:
+    container_name: graphql-server-mongodb
+    image: mongo
+    restart: unless-stopped
+    environment: 
+      - MONGO_INITDB_ROOT_USERNAME=graphql
+      - MONGO_INITDB_ROOT_PASSWORD=graphql
+    ports:
+      - 27017:27017
+    volumes:
+      - ./data-volumes/mongodb:/data/db
+    networks:
+      - app-network
+  graphql-server:
+    container_name: graphql-server
+    build: .
+    restart: unless-stopped
+    volumes:
+      - ./:/app
+    networks:
+      - app-network
+    ports:
+      - 4000:4000
+    environment:
+      NODE_ENV: "development"
+    depends_on:
+      - db
+networks:
+  app-network:
+      driver: bridge
