@@ -4,8 +4,8 @@ Node and GraphQL server with Apollo
 
 ### Running
 
-Running the application locally:
+Running the application with docker:
 
 ```sh
-yarn dev
+make dev-logs
 ```
