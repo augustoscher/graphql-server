@@ -1,4 +1,4 @@
-const movieResolver = require("./movieResolver");
+const movieResolver = require('./movieResolver');
 
 const resolvers = [movieResolver];
 

@@ -1,8 +1,8 @@
 const {
-  NODE_ENV = "development",
-  MONGODB_URL = "mongodb://db:27017/graphql",
-  MONGO_USER = "graphql",
-  MONGO_PASSWORD = "graphql",
+  NODE_ENV = 'development',
+  MONGODB_URL = 'mongodb://db:27017/graphql',
+  MONGO_USER = 'graphql',
+  MONGO_PASSWORD = 'graphql',
 } = process.env;
 
 module.exports = {
