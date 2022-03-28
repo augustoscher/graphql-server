@@ -1,6 +1,6 @@
 # graphql-server
-Node and GraphQL server with Apollo
-
+Node and GraphQL server with Apollo.
+Backend for https://github.com/augustoscher/search-app project.
 
 ### Running
 
