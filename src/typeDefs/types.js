@@ -8,6 +8,12 @@ const types = gql`
     director: Director
     producers: [Producer]
   }
+  type Serie {
+    id: ID!
+    name: String!
+    year: String
+    director: Director
+  }
   type Director {
     name: String
     country: String
