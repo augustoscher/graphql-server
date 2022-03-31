@@ -106,10 +106,171 @@ query SerieQuery {
 
 So now that our graphql server is working, let's go to frontend.
 
+### FRONTEND
+
 So we have 3 links here, for 3 pages that I already develops. And now we have to fetch our TV Series from GraphQL endpoint inside Series page.
 
-To avoid code duplication, we could create an custom hook to fetch data. So let's do it:
+- So let's start creating ou graphql query for series:
 
 ```js
+const { gql } = require('@apollo/client');
 
+const SERIE_QUERY = gql`
+  query SerieQuery {
+    series {
+      id
+      name
+      year
+      director {
+        name
+        country
+      }
+    }
+  }
+`;
+
+export default SERIE_QUERY;
+```
+
+- To avoid code duplication, we could create an custom hook to fetch data and reuse in each page. So let's do it:
+
+Let's create custom hook:
+
+```js
+import { useState, useEffect } from 'react';
+import client from '../../graphql/index';
+
+const useFetch = ({ initialQuery, initialData }) => {
+  const [data, setData] = useState(initialData);
+  const [query, setQuery] = useState(initialQuery);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setIsLoading(true);
+      setIsError(false);
+
+      try {
+        const { data } = await client.query({ query });
+
+        setData(data);
+      } catch (error) {
+        setIsError(true);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [query]);
+
+  return { data, isLoading, isError, doFetch: setQuery };
+};
+
+export default useFetch;
+```
+
+- Now, we can use `useFetch` hook in Movies and Series page:
+
+- TV Series page:
+```js
+import Base from '../../templates/Base';
+import useFetch from 'hooks/UseFetch';
+import SERIE_QUERY from 'graphql/queries/series';
+import List, { ListItem } from '../../components/List';
+
+import * as S from './styles';
+
+const Series = () => {
+  const { data, isLoading, isError } = useFetch({
+    initialQuery: SERIE_QUERY,
+    initialData: [],
+  });
+
+  const { series = [] } = data;
+
+  return (
+    <Base>
+      <h1>Series</h1>
+
+      {isError && <div>Something went wrong ...</div>}
+
+      {isLoading ? (
+        <div>Loading ...</div>
+      ) : (
+        <List>
+          {series.map((item) => (
+            <ListItem key={item.id}>
+              <S.Title>
+                {item.name} • {item.year}
+              </S.Title>
+              <S.Director>
+                Directed by: {item.director.name} - {item.director.country}
+              </S.Director>
+            </ListItem>
+          ))}
+        </List>
+      )}
+    </Base>
+  );
+};
+
+export default Series;
+```
+
+- Movies page:
+
+```js
+import Base from '../../templates/Base';
+import useFetch from 'hooks/UseFetch';
+import List, { ListItem } from '../../components/List';
+import MOVIE_QUERY from 'graphql/queries/movies';
+
+import * as S from './styles';
+
+const Movies = () => {
+  const { data, isLoading, isError } = useFetch({
+    initialQuery: MOVIE_QUERY,
+    initialData: [],
+  });
+
+  const { movies = [] } = data;
+
+  return (
+    <Base>
+      <h1>Movies</h1>
+
+      {isError && <div>Something went wrong ...</div>}
+
+      {isLoading ? (
+        <div>Loading ...</div>
+      ) : (
+        <List>
+          {movies.map((item) => (
+            <ListItem key={item.id}>
+              <S.Title>
+                {item.name} • {item.year}
+              </S.Title>
+              <S.Director>
+                Directed by: {item.director.name} - {item.director.country}
+              </S.Director>
+              <S.Producers>
+                Produced by:{' '}
+                {item.producers.map((prod, idx) => (
+                  <span key={idx}>
+                    {prod.name}
+                    {idx < item.producers.length - 1 ? ', ' : ''}
+                  </span>
+                ))}
+              </S.Producers>
+            </ListItem>
+          ))}
+        </List>
+      )}
+    </Base>
+  );
+};
+
+export default Movies;
 ```
