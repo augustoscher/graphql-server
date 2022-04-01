@@ -4,6 +4,8 @@ const query = gql`
   type Query {
     movies: [Movie]
     movie(id: ID!): Movie
+    series: [Serie]
+    serie(id: ID!): Serie
     posts: [Post]
   }
 `;
