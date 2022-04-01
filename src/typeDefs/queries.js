@@ -6,6 +6,7 @@ const query = gql`
     movie(id: ID!): Movie
     series: [Serie]
     serie(id: ID!): Serie
+    posts: [Post]
   }
 `;
 
