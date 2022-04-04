@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server');
+const { gql } = require('apollo-server')
 
 const query = gql`
   type Query {
@@ -7,7 +7,8 @@ const query = gql`
     series: [Serie]
     serie(id: ID!): Serie
     posts: [Post]
+    findPosts(queryTerm: String): [Post]
   }
-`;
+`
 
-module.exports = query;
+module.exports = query
