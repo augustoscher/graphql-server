@@ -9,8 +9,11 @@ const fetchAuthors = () => axios.get(AUTHOR_URL, { timeout: DEFAULT_TIMEOUT })
 
 const getPosts = async (params = {}) => {
   const { queryTerm } = params
-  const postsResponse = await fetchPosts()
-  const authorsResponse = await fetchAuthors()
+
+  const [postsResponse, authorsResponse] = await Promise.all([
+    fetchPosts(),
+    fetchAuthors()
+  ])
 
   const posts = postsResponse.data
   const authors = authorsResponse.data
