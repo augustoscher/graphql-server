@@ -31,7 +31,6 @@ const getPosts = async (params = {}) => {
 
   if (!queryTerm) return mapped
 
-  console.log('filtering')
   return mapped.filter((post) => {
     return (
       post.author.includes(queryTerm) ||

@@ -14,14 +14,8 @@ const postResolver = {
 
     findPosts: (_, { queryTerm }) => {
       try {
-        console.log('term')
-        console.log(queryTerm)
-        console.log()
-        if (queryTerm) {
-          console.log('with term')
-          return getPosts({ queryTerm })
-        }
-        console.log('without term')
+        if (queryTerm) return getPosts({ queryTerm })
+
         return getPosts()
       } catch (error) {
         console.log(error)
