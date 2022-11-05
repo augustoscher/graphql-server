@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server');
+const { gql } = require('apollo-server')
 
 const types = gql`
   type Movie {
@@ -27,6 +27,6 @@ const types = gql`
   type Producer {
     name: String!
   }
-`;
+`
 
-module.exports = types;
+module.exports = types
