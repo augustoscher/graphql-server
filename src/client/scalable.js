@@ -1,11 +1,9 @@
-const axios = require('axios')
-
 const DEFAULT_TIMEOUT = 1000 * 10 // Wait for 10s
 const POSTS_URL = 'https://www.scalablepath.com/api/test/test-posts'
 const AUTHOR_URL = 'https://www.scalablepath.com/api/test/test-users'
 
-const fetchPosts = () => axios.get(POSTS_URL, { timeout: DEFAULT_TIMEOUT })
-const fetchAuthors = () => axios.get(AUTHOR_URL, { timeout: DEFAULT_TIMEOUT })
+const fetchPosts = () => fetch(POSTS_URL, { timeout: DEFAULT_TIMEOUT })
+const fetchAuthors = () => fetch(AUTHOR_URL, { timeout: DEFAULT_TIMEOUT })
 
 const getPosts = async (params = {}) => {
   const { queryTerm } = params
@@ -15,8 +13,8 @@ const getPosts = async (params = {}) => {
     fetchAuthors()
   ])
 
-  const posts = postsResponse.data
-  const authors = authorsResponse.data
+  const posts = postsResponse.ok ? await postsResponse.json() : []
+  const authors = authorsResponse.ok ? await authorsResponse.json() : []
 
   const mapped = posts.map((post) => {
     const { name } = authors.find((author) => author.id === post.userId)
