@@ -2,8 +2,10 @@ const DEFAULT_TIMEOUT = 1000 * 10 // Wait for 10s
 const POSTS_URL = 'https://www.scalablepath.com/api/test/test-posts'
 const AUTHOR_URL = 'https://www.scalablepath.com/api/test/test-users'
 
-const fetchPosts = () => fetch(POSTS_URL, { timeout: DEFAULT_TIMEOUT })
-const fetchAuthors = () => fetch(AUTHOR_URL, { timeout: DEFAULT_TIMEOUT })
+const fetchPosts = () =>
+  fetch(POSTS_URL, { signal: AbortSignal.timeout(DEFAULT_TIMEOUT) })
+const fetchAuthors = () =>
+  fetch(AUTHOR_URL, { signal: AbortSignal.timeout(DEFAULT_TIMEOUT) })
 
 const getPosts = async (params = {}) => {
   const { queryTerm } = params
