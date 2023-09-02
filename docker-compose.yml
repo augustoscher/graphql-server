@@ -9,8 +9,8 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=graphql
     ports:
       - 27017:27017
-    volumes:
-      - ./data-volumes/mongodb:/data/db
+    # volumes:
+    #   - ./data-volumes/mongodb:/data/db
     networks:
       - app-network
   graphql-server:
