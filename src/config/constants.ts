@@ -5,7 +5,7 @@ const {
   MONGO_PASSWORD = 'graphql'
 } = process.env
 
-module.exports = {
+export {
   NODE_ENV,
   MONGODB_URL,
   MONGO_USER,
