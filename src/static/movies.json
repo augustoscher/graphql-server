@@ -1,0 +1,116 @@
+[
+  {
+    "name": "Breaking Bad",
+    "year": "2008",
+    "directors": [
+      {
+        "country": "United States",
+        "name": "Vince Gilligan"
+      }
+    ]
+  },
+  {
+    "name": "Band of Brothers",
+    "year": "2001",
+    "directors": [
+      {
+        "country": "United States",
+        "name": "Phil Alden Robinson"
+      }
+    ]
+  },
+  {
+    "name": "Chernobyl",
+    "year": "2019",
+    "directors": [
+      {
+        "country": "Sweden",
+        "name": "Johan Renck"
+      }
+    ]
+  },
+  {
+    "name": "Game of Thrones",
+    "year": "2011",
+    "directors":[
+      {
+        "country": "United States",
+        "name": "David Benioff"
+      }
+    ] 
+  },
+  {
+    "name": "Better Call Saul",
+    "year": "2015",
+    "directors": [
+      {
+        "country": "United States",
+        "name": "Vince Gilligan"
+      }
+    ]
+  },
+  {
+    "name": "True Detective",
+    "year": "2014",
+    "directors":[
+      {
+        "country": "United States",
+        "name": "Nick Pizzolato"
+      }
+    ]
+  },
+  {
+    "name": "Cowboy Bebop",
+    "year": "1998",
+    "directors": [
+      {
+        "country": "Japan",
+        "name": "Hajime Yatate"
+      }
+    ] 
+  },
+  {
+    "name": "The Last of Us",
+    "year": "2023",
+    "directors": [
+      {
+        "country": "Israel",
+        "name": "Neil Druckmann"
+      }
+    ]
+  },
+  {
+    "name": "Peaky Blinders",
+    "year": "2013",
+    "directors": [
+      {
+        "country": "England",
+        "name": "Steven Knight"
+      }
+    ]
+  },
+  {
+    "name": "Stranger Things",
+    "year": "2016",
+    "directors": [
+      {
+        "country": "United States",
+        "name": "Ross Duffer"
+      },
+      {
+        "country": "United States",
+        "name": "Matt Duffer"
+      }
+    ] 
+  },
+  {
+    "name": "Loki",
+    "year": "2021",
+    "directors": [
+      {
+        "country": "England",
+        "name": "Kate Herron"
+      }
+    ]
+  }
+]
