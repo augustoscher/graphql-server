@@ -10,13 +10,13 @@ const mutation = gql`
   input MovieInput {
     name: String
     year: String
-    director: [DirectorInput]
+    directors: [DirectorInput]
     producers: [ProducerInput]
   }
   input SerieInput {
     name: String
     year: String
-    director: [DirectorInput]
+    directors: [DirectorInput]
   }
   input DirectorInput {
     name: String!

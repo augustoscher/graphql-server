@@ -12,7 +12,7 @@ const types = gql`
     id: ID!
     name: String!
     year: String
-    director: [Director]
+    directors: [Director]
   }
   type Post {
     id: ID
