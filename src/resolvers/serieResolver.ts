@@ -1,4 +1,4 @@
-const Serie = require('../models/series')
+import Serie from '../models/series'
 
 const serieResolver = {
   Query: {
@@ -17,4 +17,4 @@ const serieResolver = {
   }
 }
 
-module.exports = serieResolver
+export default serieResolver

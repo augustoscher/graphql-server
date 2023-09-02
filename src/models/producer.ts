@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+import mongoose from "mongoose"
 
 const producerSchema = new mongoose.Schema({
   name: {
@@ -11,4 +11,4 @@ const producerSchema = new mongoose.Schema({
   }
 })
 
-module.export = producerSchema
+export default producerSchema

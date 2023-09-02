@@ -1,13 +1,8 @@
-const Serie = require('../models/series')
-const series = require('../static/series.json')
+import Serie from "../models/series"
+import series from '../static/series.json'
 
-const mongoose = require('mongoose')
-const {
-  MONGODB_URL,
-  MONGO_USER,
-  MONGO_PASSWORD,
-  NODE_ENV
-} = require('./constants')
+import mongoose from "mongoose"
+import { MONGODB_URL, MONGO_USER, MONGO_PASSWORD, NODE_ENV } from "./constants"
 
 const defaultConfig = {
   user: MONGO_USER,

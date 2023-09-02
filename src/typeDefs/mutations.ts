@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server')
+import { gql } from 'apollo-server'
 
 const mutation = gql`
   type Mutation {
@@ -28,4 +28,4 @@ const mutation = gql`
   }
 `
 
-module.exports = mutation
+export default mutation

@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server')
+import { gql } from 'apollo-server'
 
 const query = gql`
   type Query {
@@ -11,4 +11,4 @@ const query = gql`
   }
 `
 
-module.exports = query
+export default query

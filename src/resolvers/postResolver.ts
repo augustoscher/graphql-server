@@ -1,4 +1,4 @@
-const getPosts = require('../client/scalable')
+import getPosts from '../client/scalable'
 
 const postResolver = {
   // make scalablepath api call, to fetch authors and posts
@@ -25,4 +25,4 @@ const postResolver = {
   }
 }
 
-module.exports = postResolver
+export default postResolver

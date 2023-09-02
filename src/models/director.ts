@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+import mongoose from "mongoose"
 
 const directorSchema = new mongoose.Schema({
   name: {
@@ -11,4 +11,4 @@ const directorSchema = new mongoose.Schema({
   }
 })
 
-module.exports = directorSchema
+export default directorSchema

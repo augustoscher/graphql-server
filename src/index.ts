@@ -1,12 +1,12 @@
-const { ApolloServer } = require('apollo-server')
+import { ApolloServer } from 'apollo-server'
 
-const typeDefs = require('./typeDefs')
-const resolvers = require('./resolvers')
+import typeDefs from './typeDefs'
+import resolvers from './resolvers'
 
-require('./config/database')
+import './config/database'
 
 const server = new ApolloServer({ typeDefs, resolvers })
-// setup tv series in the database
+
 server
   .listen()
   .then(({ url }) => console.log(`Server ready at ${url}`))

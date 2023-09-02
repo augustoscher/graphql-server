@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server')
+import { gql } from 'apollo-server'
 
 const types = gql`
   type Movie {
@@ -30,4 +30,4 @@ const types = gql`
   }
 `
 
-module.exports = types
+export default types

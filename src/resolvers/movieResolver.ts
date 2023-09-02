@@ -1,4 +1,4 @@
-const Movie = require('../models/movie')
+import Movie from '../models/movie'
 
 const movieResolver = {
   Query: {
@@ -25,4 +25,4 @@ const movieResolver = {
   }
 }
 
-module.exports = movieResolver
+export default movieResolver
