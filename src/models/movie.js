@@ -1,11 +1,6 @@
 const mongoose = require('mongoose')
-
-const producerSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true
-  }
-})
+const producerSchema = require('./producer')
+const directorSchema = require('./director')
 
 const movieSchema = mongoose.Schema({
   name: {
@@ -14,10 +9,7 @@ const movieSchema = mongoose.Schema({
   },
   year: String,
   producers: [producerSchema],
-  director: {
-    name: String,
-    country: String
-  }
+  directors: [directorSchema]
 })
 
 module.exports = mongoose.model('movie', movieSchema, 'movie')

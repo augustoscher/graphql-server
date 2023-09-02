@@ -1,4 +1,6 @@
 const mongoose = require('mongoose')
+const producerSchema = require('./producer')
+const directorSchema = require('./director')
 
 const tvSerieSchema = mongoose.Schema({
   name: {
@@ -6,10 +8,8 @@ const tvSerieSchema = mongoose.Schema({
     required: true
   },
   year: String,
-  director: {
-    name: String,
-    country: String
-  }
+  producers: [producerSchema],
+  directors: [directorSchema]
 })
 
 module.exports = mongoose.model('tvSerie', tvSerieSchema, 'tvSerie')

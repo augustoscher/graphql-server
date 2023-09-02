@@ -5,14 +5,14 @@ const types = gql`
     id: ID!
     name: String!
     year: String
-    director: Director
+    director: [Director]
     producers: [Producer]
   }
   type Serie {
     id: ID!
     name: String!
     year: String
-    director: Director
+    director: [Director]
   }
   type Post {
     id: ID
@@ -21,11 +21,12 @@ const types = gql`
     body: String
   }
   type Director {
-    name: String
+    name: String!
     country: String
   }
   type Producer {
     name: String!
+    country: String
   }
 `
 
